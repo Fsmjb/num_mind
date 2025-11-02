@@ -1,0 +1,328 @@
+/* --- Variables and Base Reset --- */
+:root {
+    --color-dark-bg: #1a1a2e;
+    --color-card-bg: #2a2a44;
+    --color-text-light: #e0e0e0;
+    --color-accent-primary: #00bcd4; /* Cyan/Teal */
+    --color-accent-secondary: #ff7f50; /* Coral */
+    --color-success: #4caf50;
+    --color-danger: #f44336;
+    --color-info: #2196f3;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    color: var(--color-accent-primary);
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+h2 {
+    color: var(--color-accent-secondary);
+    margin-top: 0;
+}
+
+main {
+    width: 100%;
+    /* Ensure main content is centered */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items in the main flex container */
+    padding: 20px 10px;
+}
+
+/* --- Card and Layout --- */
+.card {
+    background-color: var(--color-card-bg);
+    padding: 25px;
+    margin: 10px 0; /* Adjusted margin for better centering with the new button */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+}
+
+.text-center { text-align: center; }
+.hidden { display: none !important; }
+
+/* --- Buttons --- */
+.btn {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--color-accent-primary);
+    color: var(--color-dark-bg);
+}
+.btn-primary:hover:not(:disabled) {
+    background-color: #00e5ff;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-accent-secondary);
+    color: var(--color-dark-bg);
+}
+.btn-secondary:hover:not(:disabled) {
+    background-color: #ff9978;
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+.btn-danger:hover:not(:disabled) {
+    background-color: #d32f2f;
+}
+
+.btn:disabled {
+    background-color: #444;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- FIX: New Style for Persistent Reset Button --- */
+.wide-reset-btn {
+    max-width: 450px; /* Match card width for centering */
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+/* Ensure the button is styled as a full-width button but adheres to max-width */
+#reset_full_game {
+    width: 100%;
+}
+
+
+/* --- Inputs and Groups --- */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+input[type="text"], input[type="number"] {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    flex-grow: 1;
+    font-size: 1em;
+    background-color: #3b3b5c;
+    color: var(--color-text-light);
+    transition: border-color 0.3s;
+}
+input:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+}
+
+/* --- Case 1: Rules --- */
+.rules-box {
+    background-color: #3b3b5c;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color-accent-primary);
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+.rules-points {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #555;
+    font-weight: 600;
+}
+.rules-points span:first-child { color: var(--color-success); }
+.rules-points span:last-child { color: var(--color-danger); }
+
+/* --- Case 2: Player List --- */
+#player_list {
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 0 10px;
+}
+.player-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #555;
+    font-weight: 500;
+}
+.player-tag span {
+    color: var(--color-accent-primary);
+}
+.remove-player-btn {
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75em;
+    margin-left: 10px;
+    width: auto;
+}
+.info-text {
+    font-size: 0.9em;
+    color: #aaa;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* --- Case 3: Game Play --- */
+#score_display h3 {
+    color: var(--color-accent-secondary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3b3b5c;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.round-control {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input-card {
+    background-color: #3b3b5c;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--color-accent-primary);
+}
+.timer-text {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--color-danger);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.prompt-text {
+    font-size: 1em;
+    font-style: italic;
+    color: var(--color-accent-secondary);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Score Cards */
+#score_display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.score-card {
+    background-color: #3b3b5c;
+    padding: 10px;
+    border-radius: 6px;
+    min-width: 100px;
+    text-align: center;
+    flex-grow: 1;
+    border-bottom: 3px solid var(--color-success);
+}
+.score-card strong {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 3px;
+    color: var(--color-accent-primary);
+}
+.score-card .score {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--color-success);
+}
+.out {
+    opacity: 0.6;
+    background-color: #4a2a3a;
+    border-bottom: 3px solid var(--color-danger);
+}
+.out .score {
+    color: var(--color-danger);
+}
+
+/* --- Case 4: Results --- */
+.result-heading {
+    color: var(--color-success);
+}
+.results-box p {
+    background-color: #3b3b5c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--color-info);
+    font-size: 0.95em;
+}
+.winner-p {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-success) !important;
+    text-align: center;
+    border: 2px solid var(--color-success) !important;
+    background-color: #2a3a3b !important;
+    padding: 15px !important;
+    margin-top: 15px !important;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 500px) {
+    main {
+        padding: 10px 5px;
+    }
+    .card {
+        margin: 5px 0;
+        padding: 15px;
+    }
+    .input-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .btn-secondary {
+        width: 100%;
+        margin-top: 0;
+    }
+    .score-card {
+        min-width: 45%;
+        flex-basis: calc(50% - 10px); /* Two cards per row */
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .wide-reset-btn {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

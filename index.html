@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Num Mind 🧠</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Num Mind 🧠</h1>
+    </header>
+
+    <main>
+
+
+        <div id="case_1" class="game-case card">
+            <h2 class="text-center">Welcome to Num Mind!</h2>
+            <div class="rules-box">
+                <p>
+                    **Objective:** Select a number between **0 and 100**.
+                    <br><br>
+                    **Winning:** The number closest to the **(Average × 0.8)** value wins the round.
+                    <br><br>
+                    **Scoring:** Winner gets **+1** point (max 10). Others get **-1** point.
+                </p>
+            </div>
+            <div>
+                <button id="start_game" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+
+        <div id="case_2" class="game-case card hidden">
+            <h2 class="text-center">Add Players</h2>
+            <div class="input-group">
+                <input type="text" id="player_name_input" placeholder="Player Name" maxlength="15">
+                <button id="add_player_btn" class="btn btn-secondary">Add</button>
+            </div>
+
+            <div id="player_list">
+            </div>
+
+            <p class="info-text">Current Players: <span id="player_count">0</span>. Min 2 required.</p>
+            <button id="start_round_setup" class="btn btn-primary" disabled>Start First Round</button>
+        </div>
+
+        <div id="case_3" class="game-case card hidden">
+            <div id="score_display">
+            </div>
+
+            <div class="round-control">
+                <button id="start_round_timer" class="btn btn-primary">Start Round!</button>
+            </div>
+
+            <div id="number_input_area" class="input-card hidden">
+                <p class="timer-text">Time: <span id="timer_display"></span>s</p>
+                <p id="current_player_prompt" class="prompt-text"></p>
+
+                <div class="input-group">
+                    <input type="number" id="number_select_input" min="0" max="100" placeholder="0 to 100">
+                    <button id="submit_number_btn" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="case_4" class="game-case card hidden">
+            <h2 class="text-center result-heading">Round Results!</h2>
+            <div id="results_summary" class="results-box">
+            </div>
+            <button id="next_round_btn" class="btn btn-primary">Start Next Round</button>
+        </div>
+        <button id="reset_full_game" class="btn btn-danger wide-reset-btn">Reset Game</button>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
